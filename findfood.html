@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food on Transit</title>
+    <style>
+        /* General styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #444;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            gap: 2rem;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+        }
+
+        main {
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        footer a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Search Form Styling */
+        .search-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            text-align: center;
+            margin-top: 1.5rem;
+        }
+
+        .search-form input,
+        .search-form select,
+        .search-form button {
+            padding: 0.75rem;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            font-size: 1rem;
+        }
+
+        .search-form input,
+        .search-form select {
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        .search-form button {
+            width: 50%;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .search-form button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Food on Transit</h1>
+        <nav>
+            <ul>
+                <li><a href="#find-food">Find Food</a></li>
+                <li><a href="#offers">Special Offers</a></li>
+                <li><a href="#support">Support</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="card" id="find-food">
+            <h2>Find Food Near You</h2>
+            <p>Discover delicious meals wherever you are. Search by location, cuisine, or popular transit points.</p>
+
+            <!-- Search Form -->
+            <div class="search-form">
+                <input type="text" id="location" placeholder="Enter your location" required>
+                <select id="cuisine">
+                    <option value="">Select Cuisine</option>
+                    <option value="italian">Italian</option>
+                    <option value="chinese">Chinese</option>
+                    <option value="indian">Indian</option>
+                    <option value="mexican">Mexican</option>
+                    <option value="american">American</option>
+                </select>
+                <button onclick="findFood()">Find Food</button>
+            </div>
+        </div>
+
+        <div class="card" id="offers">
+            <h2>Exclusive Offers</h2>
+            <p>Enjoy discounts and promotions from our featured vendors. Save on your next order!</p>
+            <button onclick="showMessage('Check out our special offers!')">See Offers</button>
+        </div>
+
+        <div class="card" id="support">
+            <h2>Customer Support</h2>
+            <p>Need help? Contact our support team for assistance with your orders and account.</p>
+            <button onclick="showMessage('How can we assist you?')">Get Support</button>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Food on Transit. All rights reserved. | <a href="#privacy">Privacy Policy</a> | <a href="#terms">Terms of Service</a></p>
+    </footer>
+
+    <script>
+        // Show alert message for buttons
+        function showMessage(message) {
+            alert(message);
+        }
+
+        // Find Food Function
+        function findFood() {
+            const location = document.getElementById("location").value;
+            const cuisine = document.getElementById("cuisine").value;
+
+            if (location.trim() === "" || cuisine.trim() === "") {
+                alert("Please enter both a location and select a cuisine.");
+                return;
+            }
+
+            // Simulate the search result
+            alert(`Searching for ${cuisine} food near ${location}...`);
+
+            // Here you could make a call to an API or database to get food results.
+        }
+    </script>
+</body>
+</html>
